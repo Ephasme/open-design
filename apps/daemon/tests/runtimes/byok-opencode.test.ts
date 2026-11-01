@@ -100,6 +100,47 @@ describe('byok-opencode runtime config', () => {
     });
   });
 
+  it('raises the declared output ceiling when the endpoint accepts larger replies', () => {
+    const out = buildOpenCodeByokProviderConfig(
+      {
+        protocol: 'senseaudio',
+        apiKey: 'sk-secret',
+        baseUrl: 'https://api.senseaudio.cn',
+      },
+      'deepseek-v4-flash',
+      { maxOutputTokens: 128_000 },
+    );
+
+    expect(out?.config).toMatchObject({
+      provider: {
+        [BYOK_OPENCODE_PROVIDER_ID]: {
+          models: {
+            'deepseek-v4-flash': { limit: { output: 128_000 } },
+          },
+        },
+      },
+    });
+  });
+
+  it('keeps the conservative output ceiling for an unusable override', () => {
+    for (const value of [0, -1, 1024.5, Number.NaN]) {
+      const out = buildOpenCodeByokProviderConfig(
+        { protocol: 'senseaudio', apiKey: 'sk-secret', baseUrl: 'https://api.senseaudio.cn' },
+        'deepseek-v4-flash',
+        { maxOutputTokens: value },
+      );
+      expect(out?.config).toMatchObject({
+        provider: {
+          [BYOK_OPENCODE_PROVIDER_ID]: {
+            models: {
+              'deepseek-v4-flash': { limit: { output: 16_384 } },
+            },
+          },
+        },
+      });
+    }
+  });
+
   it('maps native OpenAI BYOK to the OpenAI provider package', () => {
     const out = buildOpenCodeByokProviderConfig(
       { protocol: 'openai', apiKey: 'sk-openai', baseUrl: 'https://api.openai.com/v1' },

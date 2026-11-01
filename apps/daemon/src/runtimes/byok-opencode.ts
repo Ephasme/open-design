@@ -8,6 +8,21 @@ export const BYOK_OPENCODE_PROVIDER_REQUIRED_MESSAGE =
 const DEFAULT_CONTEXT_TOKEN_LIMIT = 128_000;
 const DEFAULT_OUTPUT_TOKEN_LIMIT = 16_384;
 
+/**
+ * BYOK providers publish no output-token capability, so the generated OpenCode
+ * model entry has to state one. 16 384 keeps the blind request inside every
+ * mainstream endpoint's ceiling, but OpenCode turns that number into the turn's
+ * `max_tokens`: a single `write` call carrying a large artifact is cut off
+ * mid-argument, arrives with empty input, and is reported as an aborted tool —
+ * the file is never written. `byokMaxOutputTokens` lets an installation whose
+ * endpoint accepts more raise the ceiling instead of losing every big write.
+ */
+export function resolveByokOutputTokenLimit(value: unknown): number {
+  return typeof value === 'number' && Number.isInteger(value) && value > 0
+    ? value
+    : DEFAULT_OUTPUT_TOKEN_LIMIT;
+}
+
 const DEFAULT_BASE_URL_BY_PROTOCOL: Record<ByokChatProviderConfig['protocol'], string> = {
   anthropic: 'https://api.anthropic.com/v1',
   openai: 'https://api.openai.com/v1',
@@ -42,6 +57,7 @@ export function opencodeByokModelId(model: string | null | undefined): string | 
 export function buildOpenCodeByokProviderConfig(
   provider: ByokChatProviderConfig | null | undefined,
   model: string | null | undefined,
+  options: { maxOutputTokens?: number } = {},
 ): OpenCodeByokProviderConfig | null {
   if (!provider || typeof provider !== 'object') return null;
   const protocol = provider.protocol;
@@ -86,7 +102,7 @@ export function buildOpenCodeByokProviderConfig(
             modalities: { input: ['text', 'image'], output: ['text'] },
             limit: {
               context: DEFAULT_CONTEXT_TOKEN_LIMIT,
-              output: DEFAULT_OUTPUT_TOKEN_LIMIT,
+              output: resolveByokOutputTokenLimit(options.maxOutputTokens),
             },
           },
         },

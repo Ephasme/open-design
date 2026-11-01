@@ -11777,6 +11777,7 @@ export async function startServer({
       ? buildOpenCodeByokProviderConfig(
           byokProvider,
           typeof model === 'string' ? model : null,
+          { maxOutputTokens: readAppConfigSync(RUNTIME_DATA_DIR).byokMaxOutputTokens },
         )
       : null;
     if (def.id === 'byok-opencode' && !byokOpenCodeProvider) {

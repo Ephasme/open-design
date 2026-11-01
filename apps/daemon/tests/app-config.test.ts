@@ -206,6 +206,14 @@ describe('app-config', () => {
       expect((await writeAppConfig(dataDir, { allowSilentUpdates: 'yes' })).allowSilentUpdates).toBeUndefined();
     });
 
+    it('keeps the BYOK output ceiling inside a usable range', async () => {
+      expect((await writeAppConfig(dataDir, { byokMaxOutputTokens: 128_000 })).byokMaxOutputTokens).toBe(128_000);
+      // Below the floor the agent cannot fit a single artifact write.
+      expect((await writeAppConfig(dataDir, { byokMaxOutputTokens: 512 })).byokMaxOutputTokens).toBeUndefined();
+      expect((await writeAppConfig(dataDir, { byokMaxOutputTokens: 1_500_000 })).byokMaxOutputTokens).toBeUndefined();
+      expect((await writeAppConfig(dataDir, { byokMaxOutputTokens: 65_536.5 })).byokMaxOutputTokens).toBeUndefined();
+    });
+
     it('preserves a partial explicit telemetry (metrics on, content off)', async () => {
       // The user picked a non-default combo (e.g. metrics on for funnel,
       // content off for privacy). We hand back exactly what they saved

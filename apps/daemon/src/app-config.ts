@@ -122,6 +122,13 @@ export interface AppConfigPrefs {
   telemetry?: TelemetryPrefs;
   privacyDecisionAt?: number | null;
   allowSilentUpdates?: boolean;
+  /**
+   * Output-token ceiling declared to a BYOK provider's generated OpenCode model
+   * entry. Absent keeps the conservative default; raise it when the configured
+   * endpoint accepts larger replies, otherwise a single `write` tool call that
+   * carries a big artifact is truncated and the file never lands.
+   */
+  byokMaxOutputTokens?: number;
   orbit?: OrbitConfigPrefs;
   customInstructions?: string | null;
   projectLocations?: ProjectLocationPrefs[];
@@ -157,6 +164,7 @@ const ALLOWED_KEYS: ReadonlySet<keyof AppConfigPrefs> = new Set([
   'telemetry',
   'privacyDecisionAt',
   'allowSilentUpdates',
+  'byokMaxOutputTokens',
   'orbit',
   'customInstructions',
   'projectLocations',
@@ -607,6 +615,16 @@ function applyConfigValue(
   }
   if (key === 'allowSilentUpdates') {
     if (typeof value === 'boolean') {
+      target[key] = value;
+    } else {
+      delete target[key];
+    }
+    return;
+  }
+  if (key === 'byokMaxOutputTokens') {
+    // Bounded on both sides: below 1024 starves every tool call that carries an
+    // artifact, above 1 000 000 is not an output budget any endpoint honours.
+    if (typeof value === 'number' && Number.isInteger(value) && value >= 1024 && value <= 1_000_000) {
       target[key] = value;
     } else {
       delete target[key];
