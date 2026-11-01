@@ -2955,6 +2955,7 @@ export const ru: Dict = {
   'workspace.readonlyNoticeBy': 'Это общий проект, созданный {owner} — вы можете просматривать и комментировать, но не можете изменять артефакты через Чат или инструменты редактирования.',
   'workspace.deleteSelectedFilesConfirm': 'Удалить {n} выбранных файла(ов) из папки проекта?',
   'workspace.deleteSelectedFilesPartial': 'Не удалось удалить {n} файл(ов).',
+  'workspace.deleteSharesUnverified': 'Не удалось проверить публичные ссылки этого файла. После удаления ссылки, которыми ещё пользуются, перестанут открываться.',
   'workspace.openFromDesignFiles': 'Открыть файл из',
   'workspace.designFilesLink': 'Файлы дизайна',
   'workspace.loadingSketch': 'Загрузка эскиза…',

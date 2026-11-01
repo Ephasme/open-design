@@ -2966,6 +2966,7 @@ export const ar: Dict = {
   'workspace.readonlyNoticeBy': 'هذا مشروع مشترك أنشأه {owner} — يمكنك عرضه والتعليق عليه، لكن لا يمكنك تعديل العناصر عبر الدردشة أو أدوات التحرير.',
   'workspace.deleteSelectedFilesConfirm': 'حذف {n} ملف(ات) محددة من مجلد المشروع؟',
   'workspace.deleteSelectedFilesPartial': 'فشل حذف {n} ملف(ات).',
+  'workspace.deleteSharesUnverified': 'تعذّر التحقق من الروابط العامة لهذا الملف. قد يؤدي حذفه إلى تعطيل روابط لا تزال قيد الاستخدام.',
   'workspace.openFromDesignFiles': 'فتح ملف من',
   'workspace.designFilesLink': 'ملفات التصميم',
   'workspace.loadingSketch': 'جاري تحميل الرسم...',

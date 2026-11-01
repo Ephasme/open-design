@@ -2955,6 +2955,7 @@ export const hu: Dict = {
   'workspace.readonlyNoticeBy': 'Ez egy {owner} által létrehozott megosztott projekt — megtekintheted és kommentálhatod, de a műtermékeket nem módosíthatod Chaten vagy a szerkesztőeszközökön keresztül.',
   'workspace.deleteSelectedFilesConfirm': 'Törlöd a(z) {n} kijelölt fájlt a projektmappából?',
   'workspace.deleteSelectedFilesPartial': '{n} fájl törlése sikertelen.',
+  'workspace.deleteSharesUnverified': 'Nem sikerült ellenőrizni a fájl nyilvános hivatkozásait. A törlés tönkreteheti a még használt hivatkozásokat.',
   'workspace.openFromDesignFiles': 'Nyiss meg egy fájlt innen:',
   'workspace.designFilesLink': 'Designfájlok',
   'workspace.loadingSketch': 'Vázlat betöltése…',

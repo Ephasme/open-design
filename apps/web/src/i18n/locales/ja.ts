@@ -2955,6 +2955,7 @@ export const ja: Dict = {
   'workspace.readonlyNoticeBy': 'これは {owner} が作成した共有プロジェクトです。閲覧とコメントはできますが、Chat や編集ツールで Artifact を変更することはできません。',
   'workspace.deleteSelectedFilesConfirm': 'プロジェクトフォルダーから選択した {n} 個のファイルを削除しますか？',
   'workspace.deleteSelectedFilesPartial': '{n} 個のファイルの削除に失敗しました。',
+  'workspace.deleteSharesUnverified': 'このファイルの公開リンクを確認できませんでした。削除すると、使用中のリンクが開けなくなる可能性があります。',
   'workspace.openFromDesignFiles': 'ファイルを開く: ',
   'workspace.designFilesLink': 'デザインファイル',
   'workspace.loadingSketch': 'スケッチを読み込み中…',

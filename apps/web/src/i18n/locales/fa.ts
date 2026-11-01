@@ -2966,6 +2966,7 @@ export const fa: Dict = {
   'workspace.readonlyNoticeBy': 'این پروژه‌ی اشتراکی را {owner} ایجاد کرده — می‌توانید مشاهده و نظر بدهید، اما نمی‌توانید Artifact را از طریق چت یا ابزارهای ویرایش تغییر دهید.',
   'workspace.deleteSelectedFilesConfirm': 'آیا {n} فایل انتخاب‌شده از پوشه پروژه حذف شوند؟',
   'workspace.deleteSelectedFilesPartial': 'حذف {n} فایل ناموفق بود.',
+  'workspace.deleteSharesUnverified': 'بررسی پیوندهای عمومی این فایل ممکن نشد. حذف آن می‌تواند پیوندهایی را که هنوز استفاده می‌شوند از کار بیندازد.',
   'workspace.openFromDesignFiles': 'باز کردن یک فایل از',
   'workspace.designFilesLink': 'فایل‌های طراحی',
   'workspace.loadingSketch': 'در حال بارگذاری طرح…',

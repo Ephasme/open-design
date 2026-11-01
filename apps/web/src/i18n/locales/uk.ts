@@ -2955,6 +2955,7 @@ export const uk: Dict = {
   'workspace.readonlyNoticeBy': 'Це спільний проєкт, створений {owner} — ви можете переглядати й коментувати, але не можете змінювати артефакти через Чат або інструменти редагування.',
   'workspace.deleteSelectedFilesConfirm': 'Видалити {n} вибраних файлів з папки проекту?',
   'workspace.deleteSelectedFilesPartial': 'Не вдалося видалити {n} файл(ів).',
+  'workspace.deleteSharesUnverified': 'Не вдалося перевірити публічні посилання цього файлу. Після видалення посилання, якими ще користуються, перестануть відкриватися.',
   'workspace.openFromDesignFiles': 'Відкрити файл з',
   'workspace.designFilesLink': 'Файли дизайну',
   'workspace.loadingSketch': 'Завантаження ескізу…',

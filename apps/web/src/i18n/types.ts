@@ -3861,6 +3861,7 @@ export interface Dict {
   'workspace.fileSyncUploading': string;
   'workspace.deleteSelectedFilesConfirm': string;
   'workspace.deleteSelectedFilesPartial': string;
+  'workspace.deleteSharesUnverified': string;
   'workspace.openFromDesignFiles': string;
   'workspace.designFilesLink': string;
   'workspace.loadingSketch': string;

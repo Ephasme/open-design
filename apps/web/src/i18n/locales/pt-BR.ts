@@ -2955,6 +2955,7 @@ export const ptBR: Dict = {
   'workspace.readonlyNoticeBy': 'Este é um projeto compartilhado criado por {owner} — você pode visualizar e comentar, mas não alterar artefatos pelo Chat ou pelas ferramentas de edição.',
   'workspace.deleteSelectedFilesConfirm': 'Excluir {n} arquivo(s) selecionado(s) da pasta do projeto?',
   'workspace.deleteSelectedFilesPartial': 'Falha ao excluir {n} arquivo(s).',
+  'workspace.deleteSharesUnverified': 'Não foi possível verificar os links públicos deste arquivo. Excluí-lo pode quebrar links ainda em uso.',
   'workspace.openFromDesignFiles': 'Abra um arquivo em',
   'workspace.designFilesLink': 'Arquivos de design',
   'workspace.loadingSketch': 'Carregando esboço…',

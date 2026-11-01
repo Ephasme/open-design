@@ -2955,6 +2955,7 @@ export const id: Dict = {
   'workspace.readonlyNoticeBy': 'Ini proyek bersama yang dibuat oleh {owner} — Anda dapat melihat dan mengomentari, tetapi tidak dapat mengubah artefak melalui Chat atau alat pengeditan.',
   'workspace.deleteSelectedFilesConfirm': 'Hapus {n} file terpilih dari folder proyek?',
   'workspace.deleteSelectedFilesPartial': 'Gagal menghapus {n} file.',
+  'workspace.deleteSharesUnverified': 'Tidak dapat memeriksa tautan publik file ini. Menghapusnya dapat merusak tautan yang masih dipakai.',
   'workspace.openFromDesignFiles': 'Buka file dari',
   'workspace.designFilesLink': 'File desain',
   'workspace.loadingSketch': 'Memuat sketsa...',

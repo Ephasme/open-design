@@ -2977,6 +2977,7 @@ export const en: Dict = {
   'workspace.readonlyNoticeBy': 'This is a shared project created by {owner} — you can view and comment, but not change artifacts through Chat or the editing tools.',
   'workspace.deleteSelectedFilesConfirm': 'Delete {n} selected file(s) from the project folder?',
   'workspace.deleteSelectedFilesPartial': 'Failed to delete {n} file(s).',
+  'workspace.deleteSharesUnverified': 'Could not check the public links of this file. Deleting it may break links that are still in use.',
   'workspace.openFromDesignFiles': 'Open a file from',
   'workspace.designFilesLink': 'Design Files',
   'workspace.loadingSketch': 'Loading sketch…',

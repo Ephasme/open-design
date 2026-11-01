@@ -2955,6 +2955,7 @@ export const th: Dict = {
   'workspace.readonlyNoticeBy': 'นี่คือโปรเจกต์ที่แชร์ซึ่งสร้างโดย {owner} — คุณสามารถดูและแสดงความคิดเห็นได้ แต่ไม่สามารถแก้ไขอาร์ติแฟกต์ผ่าน Chat หรือเครื่องมือแก้ไข',
   'workspace.deleteSelectedFilesConfirm': 'ลบไฟล์ {n} รายการที่เลือกออกจากโปรเจกต์?',
   'workspace.deleteSelectedFilesPartial': 'ลบ {n} รายการไม่ผ่าน',
+  'workspace.deleteSharesUnverified': 'ตรวจสอบลิงก์สาธารณะของไฟล์นี้ไม่สำเร็จ การลบอาจทำให้ลิงก์ที่ยังใช้งานอยู่เปิดไม่ได้',
   'workspace.openFromDesignFiles': 'เปิดไฟล์จาก',
   'workspace.designFilesLink': 'หน้าไฟล์งาน',
   'workspace.loadingSketch': 'กำลังโหลดกระดานวาด…',

@@ -137,7 +137,7 @@ import { Icon, type IconName } from './Icon';
 import { projectIsSharedWithWorkspace } from '../collab/project-shared-status';
 import { FileSyncBadge, type FileSyncBadgeState } from '../collab/FileSyncBadge';
 import { Toast } from './Toast';
-import { activeFileSharesBeforeDelete } from './project-actions/activeFileSharesBeforeDelete';
+import { activeFileSharesWarning, readActiveFileSharesBeforeDelete } from './project-actions/activeFileSharesBeforeDelete';
 import { ProjectDeleteConfirmDialog } from './project-actions/ProjectDeleteConfirmDialog';
 import { useProjectShareHistoryState } from './share/useProjectShareHistory';
 import { TabLauncherMenu } from './workspace/TabLauncherMenu';
@@ -2647,18 +2647,11 @@ export function FileWorkspace({
   const fileDeletePendingRef = useRef(false);
   async function confirmFileDelete(filePaths: readonly string[], message: string): Promise<boolean> {
     const generation = currentWorkspaceAccountGeneration();
-    let activeCount: number | null;
-    try {
-      activeCount = await activeFileSharesBeforeDelete(projectId, filePaths, workspaceContext);
-    } catch {
-      alert(t('ds.actionFailed'));
-      return false;
-    }
+    const shares = await readActiveFileSharesBeforeDelete(projectId, filePaths, workspaceContext);
     if (generation !== currentWorkspaceAccountGeneration()) return false;
-    const warning = activeCount !== null && activeCount > 0
-      ? `\n\n${t('designs.deleteActiveShares', { count: activeCount })}`
-      : '';
-    return confirm(`${message}${warning}`) && generation === currentWorkspaceAccountGeneration();
+    const warning = activeFileSharesWarning(shares, t);
+    return confirm(warning ? `${message}\n\n${warning}` : message)
+      && generation === currentWorkspaceAccountGeneration();
   }
 
   async function handleDelete(name: string) {

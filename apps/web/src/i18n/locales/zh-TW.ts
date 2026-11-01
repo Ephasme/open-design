@@ -6052,4 +6052,5 @@ export const zhTW: Dict = {
   'comment.saveTargetMissing': '評論目標已不存在，請重新選擇元素；草稿已保留。',
   'comment.savePreviewNotReady': '預覽正在重新整理，草稿已保留，請在完成後重試儲存。',
   'comment.anchorState.lost': '錨點已遺失',
+  'workspace.deleteSharesUnverified': 'Could not check the public links of this file. Deleting it may break links that are still in use.',
 };

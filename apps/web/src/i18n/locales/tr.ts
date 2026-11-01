@@ -2955,6 +2955,7 @@ export const tr: Dict = {
   'workspace.readonlyNoticeBy': 'Bu, {owner} tarafından oluşturulan paylaşılan bir proje — görüntüleyip yorum yapabilirsiniz, ancak Chat veya düzenleme araçlarıyla yapıtları değiştiremezsiniz.',
   'workspace.deleteSelectedFilesConfirm': 'Seçili {n} dosya proje klasöründen silinsin mi?',
   'workspace.deleteSelectedFilesPartial': '{n} dosya silinemedi.',
+  'workspace.deleteSharesUnverified': 'Bu dosyanın herkese açık bağlantıları denetlenemedi. Silmek, hâlâ kullanılan bağlantıları bozabilir.',
   'workspace.openFromDesignFiles': 'bir dosya aç',
   'workspace.designFilesLink': 'Tasarım Dosyaları',
   'workspace.loadingSketch': 'Taslak yükleniyor…',

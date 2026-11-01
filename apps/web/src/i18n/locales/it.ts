@@ -2955,6 +2955,7 @@ export const it: Dict = {
   'workspace.readonlyNoticeBy': 'Questo è un progetto condiviso creato da {owner}: puoi visualizzarlo e commentarlo, ma non modificare gli artefatti tramite Chat o gli strumenti di modifica.',
   'workspace.deleteSelectedFilesConfirm': 'Eliminare i {n} file selezionati dalla cartella del progetto?',
   'workspace.deleteSelectedFilesPartial': 'Impossibile eliminare {n} file.',
+  'workspace.deleteSharesUnverified': 'Non è stato possibile verificare i link pubblici di questo file. Eliminandolo, i link ancora in uso potrebbero smettere di funzionare.',
   'workspace.openFromDesignFiles': 'Apri un file da',
   'workspace.designFilesLink': 'File di design',
   'workspace.loadingSketch': 'Caricamento dello schizzo…',
